@@ -21,7 +21,6 @@ namespace Juste_IFI_toi.Controllers
 
         public ActionResult Contact()
         {
-
             return View();
         }
     }

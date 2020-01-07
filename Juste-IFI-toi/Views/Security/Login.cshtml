@@ -1,9 +1,8 @@
+@using System.Collections
+@using Juste_IFI_toi.Models
+@using Microsoft.Ajax.Utilities
 @{
     Layout = null;
-    if (ViewBag.Error == null)
-    {
-        ViewBag.Error = "";
-    }
 }
 <!DOCTYPE html>
 <html>
@@ -16,21 +15,36 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            @ViewBag.Error
-            <form action="" method="post">
-                <label for="pseudo"> Pseudo:
-                    <input type="text" id="pseudo" name="pseudo">
-                </label>
-                <label for="password"> Password:
-                    <input type="password" id="password" name="password">
-                </label>
-                <input type="submit" value="Se connecter">
-            </form>
-        </div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @ViewBag.Error
+        <form action="" method="post">
+            <label for="pseudo"> Pseudo:
+                <input type="text" id="pseudo" name="pseudo">
+            </label>
+            <label for="password"> Password:
+                <input type="password" id="password" name="password">
+            </label>
+            <input type="submit" value="Se connecter">
+        </form>
     </div>
+</div>
+<div>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @ViewBag.new_Error
+        <form action="/Security/CreateAccount" method="post">
+            <label for="pseudo"> Pseudo:
+                <input type="text" id="new_pseudo" name="new_pseudo">
+            </label>
+            <label for="password"> Password:
+                <input type="password" id="new_password" name="new_password">
+            </label>
+            <input type="submit" value="Creer le compte">
+        </form>
+    </div>
+</div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
