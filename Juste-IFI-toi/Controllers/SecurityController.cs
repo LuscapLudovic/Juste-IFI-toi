@@ -7,6 +7,7 @@ using Juste_IFI_toi.Models;
 
 namespace Juste_IFI_toi.Controllers
 {
+    [AllowAnonymous]
     public class SecurityController : Controller
     {
         
@@ -44,6 +45,7 @@ namespace Juste_IFI_toi.Controllers
             return View();
         }
 
+        
         public ActionResult CreateAccount()
         {
             
@@ -83,7 +85,8 @@ namespace Juste_IFI_toi.Controllers
 
         public ActionResult Logout()
         {
-            return RedirectToRoute("/Home/Login");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
         }
     }
 }
