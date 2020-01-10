@@ -21,7 +21,7 @@ namespace Juste_IFI_toi.Controllers
             if(Request.HttpMethod == "POST")
             {
                 Retard retard = new Retard();
-                retard.User = (User)Session["actUser"];
+                User user = (User)Session["actUser"];
                 DateTime date = DateTime.Today;                
                 string motif = Request.Form.Get("motif");
                 if (file != null && file.ContentLength > 0)
@@ -42,8 +42,18 @@ namespace Juste_IFI_toi.Controllers
                 }
                 string photo = file.FileName;
                 retard.Date = date;
+                retard.User = user;
                 retard.Motif = motif;
                 retard.Photo = photo;
+
+                List<Retard> listRetards = (List<Retard>)Session["Retards"];
+                if(listRetards == null)
+                {
+                    listRetards = new List<Retard>();
+                }
+                listRetards.Add(retard);
+
+                Session["Retards"] = listRetards;
             }
             return View();
         }
