@@ -7,6 +7,10 @@
     display: block;
 }
 
+.block-login input, .block-create input{
+    color: black;
+}
+
 .block-create{
     height: 30vh;
 }

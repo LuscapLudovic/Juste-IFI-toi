@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Juste_IFI_toi.Models;
@@ -26,6 +27,7 @@ namespace Juste_IFI_toi.Controllers
                 {
                     listUser = new List<User>();
                     listUser.Add(new User {pseudo = "admin", password = "admin"});
+                    Session["users"] = listUser;
                 }
 
                 string _pseudo = Request.Form.Get("pseudo");
@@ -34,7 +36,10 @@ namespace Juste_IFI_toi.Controllers
                 if (listUser.Exists(user => user.pseudo == _pseudo && user.password == _password))
                 {
                     FormsAuthentication.RedirectFromLoginPage(Request.Form.Get("pseudo"), true);
-                    Session["actUser"] = new User{pseudo = _pseudo, password = _password};
+                    User user = new User{Id = listUser[listUser.Count - 1].Id + 1, pseudo = _pseudo, password = _password};
+                    HttpCookie userIdCookie = new HttpCookie("actUser");
+                    userIdCookie.Value = user.Id.ToString();
+                    Response.Cookies.Add(userIdCookie);
                     return RedirectToAction("Index", "Home");  
                 }
                 else

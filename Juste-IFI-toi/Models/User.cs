@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Juste_IFI_toi.Models
 {
     public class User
