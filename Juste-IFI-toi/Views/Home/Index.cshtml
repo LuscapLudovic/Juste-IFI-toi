@@ -6,14 +6,22 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <h2>Top des reatrds</h2>
+        <h2>Top des retards</h2>
         
         @{
-            foreach (Retard retard in ViewBag.listRetards)
+            if (ViewBag.listRetards != null)
             {
-                <div class="retard-block">
-                    
-                </div>
+                foreach (Retard retard in ViewBag.listRetards)
+                {
+                    <div class="retard-block">
+                        <h4>@retard.Motif</h4>
+                        <div>@retard.Date.ToShortDateString()</div>
+                        <img src="@retard.Photo" alt="preuve">
+                        <div>
+                            by : @retard.User.pseudo
+                        </div>
+                    </div>
+                }   
             }
         }
         
