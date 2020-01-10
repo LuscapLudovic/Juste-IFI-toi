@@ -44,7 +44,7 @@ namespace Juste_IFI_toi.Controllers
                 retard.Date = date;
                 retard.User = user;
                 retard.Motif = motif;
-                retard.Photo = photo;
+                retard.Photo = "/Images/" + photo;
 
                 List<Retard> listRetards = (List<Retard>)Session["Retards"];
                 if(listRetards == null)
@@ -56,6 +56,14 @@ namespace Juste_IFI_toi.Controllers
                 Session["Retards"] = listRetards;
             }
             return View();
+        }
+
+        public EmptyResult Up(int id)
+        {            
+            List<Retard> list = (List<Retard>)Session["Retards"];
+            Retard retard = list.Find(r => { return r.Id == id; });
+            retard.Note++;      
+            return 
         }
     }
 }
