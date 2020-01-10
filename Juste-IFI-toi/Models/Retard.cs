@@ -8,7 +8,9 @@ namespace Juste_IFI_toi.Models
     public class Retard
     {
         public int Id { get; set; }
+        public User User { get; set; }
         public DateTime Date { get; set; }
+        public String Note { get; set; }
         public String Motif { get; set; }
         public String Photo { get; set; }
     }
