@@ -1,0 +1,12 @@
+.block-login{
+    height: 40vh;
+    margin-bottom: 10vh;
+}
+
+.block-login label{
+    display: block;
+}
+
+.block-create{
+    height: 30vh;
+}
