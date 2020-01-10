@@ -12,12 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Content/Login.css">
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="col-md-8 btn btn-info block-login">
         @ViewBag.Error
         <form action="" method="post">
             <label for="pseudo"> Pseudo:
@@ -26,13 +27,13 @@
             <label for="password"> Password:
                 <input type="password" id="password" name="password">
             </label>
-            <input type="submit" value="Se connecter">
+            <input type="submit" class="btn btn-default" value="Se connecter">
         </form>
     </div>
 </div>
 <div>
     <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="col-md-8 btn btn-info block-create">
         @ViewBag.new_Error
         <form action="/Security/CreateAccount" method="post">
             <label for="pseudo"> Pseudo:
@@ -41,7 +42,7 @@
             <label for="password"> Password:
                 <input type="password" id="new_password" name="new_password">
             </label>
-            <input type="submit" value="Creer le compte">
+            <input type="submit" class="btn btn-default" value="Creer le compte">
         </form>
     </div>
 </div>

@@ -34,6 +34,7 @@ namespace Juste_IFI_toi.Controllers
                 if (listUser.Exists(user => user.pseudo == _pseudo && user.password == _password))
                 {
                     FormsAuthentication.RedirectFromLoginPage(Request.Form.Get("pseudo"), true);
+                    Session["actUser"] = new User{pseudo = _pseudo, password = _password};
                     return RedirectToAction("Index", "Home");  
                 }
                 else
@@ -71,7 +72,7 @@ namespace Juste_IFI_toi.Controllers
                     {
                         Session["new_Error"] = "Le pseudo est déjà pris, essayer un autre pseudo";
                     }
-                    Session["users"] = listUser;   
+                    Session["users"] = listUser;
                 }
                 else
                 {
@@ -86,6 +87,7 @@ namespace Juste_IFI_toi.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session["actUser"] = null;
             return RedirectToAction("Login");
         }
     }
