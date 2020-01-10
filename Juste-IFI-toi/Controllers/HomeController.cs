@@ -13,8 +13,10 @@ namespace Juste_IFI_toi.Controllers
         public ActionResult Index()
         {
 
-            ViewBag.listRetards = (List<Retard>)Session["Retards"];
-
+            List<Retard> listRetards = (List<Retard>)Session["Retards"];
+            
+            ViewBag.listRetards = listRetards.OrderBy(retard =>  retard.Note);
+            
             return View();
         }
 
