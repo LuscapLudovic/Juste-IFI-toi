@@ -44,7 +44,7 @@ namespace Juste_IFI_toi.Controllers
                 retard.Date = date;
                 retard.User = user;
                 retard.Motif = motif;
-                retard.Photo = photo;
+                retard.Photo = "/Images/" + photo;
 
                 List<Retard> listRetards = (List<Retard>)Session["Retards"];
                 if(listRetards == null)

@@ -13,17 +13,20 @@
             {
                 foreach (Retard retard in ViewBag.listRetards)
                 {
-                    <div class="retard-block">
+                    <div class="retard-block btn btn-dark">
                         <h4>@retard.Motif</h4>
                         <div>@retard.Date.ToShortDateString()</div>
                         <img src="@retard.Photo" alt="preuve">
                         <div>
                             by : @retard.User.pseudo
                         </div>
+                        <div>
+                            <button accesskey="@retard.Id" class="btnUp btn btn-info">+</button>
+                            <button accesskey="@retard.Id" class="btnDown btn btn-info">-</button>
+                        </div>
                     </div>
-                }   
+                }
             }
         }
-        
     </div>
 </div>
