@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Juste_IFI_toi.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -21,7 +22,6 @@ namespace Juste_IFI_toi.Controllers
 
         public ActionResult Contact()
         {
-
             return View();
         }
     }
