@@ -1,0 +1,32 @@
+﻿@model Juste_IFI_toi.Models.Retard
+
+@{   
+    ViewBag.Title = "CreateRetard";
+}
+
+<div>
+    <h2>Racontez-nous pourquoi vous êtes en retard</h2>
+</div>
+@using (Html.BeginForm("CreateRetard", "Retard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            Motif
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Motif)
+        </td>
+    </tr>
+    <tr>
+        <label for="file">Une photo souvenir ? :</label>
+        <input type="file" name="file" id="file" />
+        <br>
+        <br>        
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Valider" /></td>
+    </tr>
+</table>
+}
