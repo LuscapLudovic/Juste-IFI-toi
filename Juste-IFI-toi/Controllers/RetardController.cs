@@ -21,7 +21,7 @@ namespace Juste_IFI_toi.Controllers
             if(Request.HttpMethod == "POST")
             {
                 Retard retard = new Retard();
-                //User user = 
+                retard.User = (User)Session["actUser"];
                 DateTime date = DateTime.Today;                
                 string motif = Request.Form.Get("motif");
                 if (file != null && file.ContentLength > 0)
