@@ -21,8 +21,19 @@
                             by : @retard.User.pseudo
                         </div>
                         <div>
-                            <button accesskey="@retard.Id" class="btnUp btn btn-info">+</button>
-                            <button accesskey="@retard.Id" class="btnDown btn btn-info">-</button>
+                            vote : @retard.Note
+                        </div>
+                        <div>
+                            <!--<button accesskey="@retard.Id" onclick="Up" class="btnUp btn btn-info">+</button>-->
+                            @using (Html.BeginForm("Up", "Retard"))
+                            {
+                                <input type="button" accesskey="@retard.Id" name="button" class="btnUp btn btn-info" value="+" />
+                            }
+                            <!--<button accesskey="@retard.Id" onclick="Down" class="btnDown btn btn-info">-</button>-->
+                            @using (Html.BeginForm("Down", "Retard"))
+                            {
+                                <input type="button" accesskey="@retard.Id" name="button" class="btnDown btn btn-info" value="-" />
+                            }
                         </div>
                     </div>
                 }

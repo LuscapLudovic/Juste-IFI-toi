@@ -57,13 +57,18 @@ namespace Juste_IFI_toi.Controllers
             }
             return View();
         }
-        //TODO ça marche ptdr
-        /*public EmptyResult Up(int id)
-        {            
-            List<Retard> list = (List<Retard>)Session["Retards"];
-            Retard retard = list.Find(r => { return r.Id == id; });
-            retard.Note++;      
-            //return 
-        }*/
+        //TODO ça marche pas ptdr
+        public ActionResult Up(Retard retard)
+        {                        
+            retard.Note++;
+            return View(retard.Note);
+        }
+
+        // ça non plus mdr
+        public ActionResult Down(Retard retard)
+        {
+            retard.Note--;
+            return View(retard.Note);
+        }
     }
 }
