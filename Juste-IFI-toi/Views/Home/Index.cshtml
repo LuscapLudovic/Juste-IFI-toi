@@ -12,29 +12,31 @@
             {
                 foreach (Retard retard in ViewBag.listRetards)
                 {
-                    <div class="retard-block btn btn-dark">
-                        <h4>@retard.Motif</h4>
-                        <div>@retard.Date.ToShortDateString()</div>
-                        <img src="@retard.Photo" alt="preuve">
-                        <div>
-                            by : @retard.User.pseudo
-                        </div>
-                        <div>
-                            vote : @retard.Note
-                        </div>
-                        <div>
-                            <!--<button accesskey="@retard.Id" onclick="Up" class="btnUp btn btn-info">+</button>-->
-                            @using (Html.BeginForm("Up", "Retard"))
-                            {
-                                <input type="button" accesskey="@retard.Id" name="button" class="btnUp btn btn-info" value="+" />
-                            }
-                            <!--<button accesskey="@retard.Id" onclick="Down" class="btnDown btn btn-info">-</button>-->
-                            @using (Html.BeginForm("Down", "Retard"))
-                            {
-                                <input type="button" accesskey="@retard.Id" name="button" class="btnDown btn btn-info" value="-" />
-                            }
-                        </div>
+                <div class="retard-block btn btn-dark">
+                    <h4>@retard.Motif</h4>
+                    <div>@retard.Date.ToShortDateString()</div>
+                    <img src="@retard.Photo" alt="preuve">
+                    <div>
+                        by : @retard.User.pseudo
                     </div>
+                    <div>
+                        <!--<button accesskey="@retard.Id" onclick="Up" class="btnUp btn btn-info">+</button>-->
+                        @using (Html.BeginForm("Down", "Retard"))
+                        {
+                            <input type="button" accesskey="@retard.Id" name="button" class="btnDown btn btn-info" value="-" />
+                        }
+                    </div>
+                    <div>
+                        vote : @retard.Note
+                    </div>
+                    <div>                        
+                        <!--<button accesskey="@retard.Id" onclick="Down" class="btnDown btn btn-info">-</button>-->
+                        @using (Html.BeginForm("Up", "Retard"))
+                        {
+                            <input type="button" accesskey="@retard.Id" name="button" class="btnUp btn btn-info" value="+" />
+                        }
+                    </div>
+                </div>
                 }
             }
         }
